@@ -55,3 +55,6 @@ new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
 
 ## See Also ##
 *    [Lightstreamer SDK for Node Adapters](https://github.com/Weswit/Lightstreamer-lib-node-adapter "Lightstreamer SDK for Node Adapters")
+
+## Lightstreamer Compatibility Notes ##
+Compatible with Lightstreamer SDK for Node Adapters since 1.0.0
