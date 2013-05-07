@@ -1,4 +1,4 @@
-# Lightstreamer Chat Demo adapter for Node #
+# Lightstreamer Chat Demo Adapter for Node #
 
 This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
 It shows the use of DataProvider and MetadataProvider classes provided in the lightstreamer-adapter node module.
