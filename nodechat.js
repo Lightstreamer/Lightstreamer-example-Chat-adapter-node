@@ -69,7 +69,7 @@ dataProvider.on('subscribe', function(itemName, response) {
     subscribed = true;
     response.success();    
   } else {
-    response.error("No such item");
+    response.error("No such item", "subscription");
   }
 });
 
@@ -80,7 +80,7 @@ dataProvider.on('unsubscribe', function(itemName, response) {
     subscribed = false;
     response.success();
   } else {
-    response.error("No such item");
+    response.error("No such item", "subscription");
   }
 });
 
@@ -102,10 +102,10 @@ metadataProvider.on('notifySessionClose', function(request, response) {
 metadataProvider.on('notifyUserMessage', function(request, response) {
   console.log("New user message: " + inspect(request));
   if (!subscribed) {
-    response.error("Unexpected message");
+    response.error("Unexpected message", "notification");
   }
   if (!sessions[request.sessionId]) {
-    response.error("Session lost! Please reload the browser page(s).");
+    response.error("Session lost! Please reload the browser page(s).", "notification");
   }
   var session = sessions[request.sessionId];
   var userMessage = request.userMessage.split("|")[1];
