@@ -3,10 +3,10 @@
 This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
 It shows the use of DataProvider and MetadataProvider classes provided in the lightstreamer-adapter node module.
 
-## Install the example ##
+# Deploy #
 The following steps assume that Lightstreamer Server, Adapter and Client are launched on the same machine. Adapt hosts accordingly when separating the pieces across different machines.
 
-### Prepare Lightstreamer ###
+## Prepare Lightstreamer ##
 
 1.    Download and install Lightstreamer
 2.    Go to the "adapters" folder of your Lightstreamer Server installation. Create a new folder and call it "ChatAdapterNode". Create a "lib" folder inside it.
@@ -31,7 +31,7 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
 
 5.    Launch Lightstreamer.
 
-### Prepare the Remote Adapter ###
+## Prepare the Remote Adapter ##
 
 1.    From the command line go to the folder of this project and call
 ```
@@ -43,9 +43,9 @@ npm install lightstreamer-adapter
 node nodechat.js
 ```
 
-### Prepare the Client ###
+## Prepare the Client ##
 
-1.    Copy the "Lightstreamer/pages/demos/ChatDemo" folder from the Lightstreamer distribution
+1.    Please refer to the [Lightstreamer Chat Demo Client for JavaScript](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) project
 2.    Edit the index.html file: search the LightstreamerClient instantiation and replace the "DEMO" string with "PROXY_NODECHAT"
 ```js
 new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
@@ -53,8 +53,17 @@ new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
 
 3.    Open the index.html file in one or more browsers. You can either launch the file using the file:/// protocol (i.e.: by double-clicking the file on most systems) or by deploying the folder on a local webserver (you may use Lightstreamer internal webserver).
 
-## See Also ##
+# See Also #
+
 *    [Lightstreamer SDK for Node Adapters](https://github.com/Weswit/Lightstreamer-lib-node-adapter "Lightstreamer SDK for Node Adapters")
 
-## Lightstreamer Compatibility Notes ##
+## Clients using this Adapter ##
+
+*    [Lightstreamer Chat Demo Client for JavaScript](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript)
+
+## Related projects ##
+
+*    [Lightstreamer Chat Demo Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
+
+# Lightstreamer Compatibility Notes #
 Compatible with Lightstreamer SDK for Node Adapters since 1.1.1
