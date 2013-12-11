@@ -1,4 +1,4 @@
-# Lightstreamer Chat Demo Adapter for Node #
+# Lightstreamer - Basic Chat Demo - Node.js Adapter #
 
 This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
 It shows the use of DataProvider and MetadataProvider classes provided in the lightstreamer-adapter node module.
@@ -45,7 +45,7 @@ node nodechat.js
 
 ## Prepare the Client ##
 
-1.    Please refer to the [Lightstreamer Chat Demo Client for JavaScript](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) project
+1.    Please refer to the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) project
 2.    Edit the index.html file: search the LightstreamerClient instantiation and replace the "DEMO" string with "PROXY_NODECHAT"
 ```js
 new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
@@ -59,11 +59,11 @@ new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
 
 ## Clients using this Adapter ##
 
-*    [Lightstreamer Chat Demo Client for JavaScript](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript)
+*    [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript)
 
 ## Related projects ##
 
-*    [Lightstreamer Chat Demo Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
+*    [Lightstreamer - Basic Chat Demo - Java SE Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
 
 # Lightstreamer Compatibility Notes #
 Compatible with Lightstreamer SDK for Node Adapters since 1.1.1
