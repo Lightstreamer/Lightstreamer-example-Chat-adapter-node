@@ -63,7 +63,7 @@ new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
 
 ## Related projects ##
 
-*    [Lightstreamer - Basic Chat Demo - Java SE Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
+*    [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
 
 # Lightstreamer Compatibility Notes #
 Compatible with Lightstreamer SDK for Node Adapters since 1.1.1
