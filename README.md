@@ -1,10 +1,10 @@
 # Lightstreamer - Basic Chat Demo - Node.js Adapter #
-<!-- START DESCRIPTION Basic Chat Demo -->
+<!-- START DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
 This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
 It shows the use of DataProvider and MetadataProvider classes provided in the lightstreamer-adapter node module.
 
-<!-- END DESCRIPTION Basic Chat Demo -->
+<!-- END DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
 # Deploy #
 The following steps assume that Lightstreamer Server, Adapter and Client are launched on the same machine. Adapt hosts accordingly when separating the pieces across different machines.
