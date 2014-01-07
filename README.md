@@ -49,7 +49,7 @@ node nodechat.js
 ## Prepare the Client ##
 
 1.    Please refer to the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) project
-2.    Edit the index.html file: search the LightstreamerClient instantiation and replace the "DEMO" string with "PROXY_NODECHAT"
+2.    Edit the index.html file: search the LightstreamerClient instantiation and replace the "CHAT" string with "PROXY_NODECHAT"
 ```js
 new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
 ```
