@@ -19,6 +19,7 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
 2.    Go to the "adapters" folder of your Lightstreamer Server installation. Create a new folder and call it "ChatAdapterNode". Create a "lib" folder inside it.
 3.    Copy the "ls-proxy-adapters.jar" file from "Lightstreamer/DOCS-SDKs/sdk_adapter_remoting_infrastructure/lib" in the newly created "lib" folder.
 4.    Create an "adapters.xml" file inside the "NodeAdapter" folder and use the following contents:
+
         ```xml
         <?xml version="1.0"?>
         
@@ -36,6 +37,7 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
           </data_provider>
         </adapters_conf>
         ```
+        
 5.    Launch Lightstreamer.
 
 ## Prepare the Remote Adapter ##
