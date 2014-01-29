@@ -1,8 +1,16 @@
 # Lightstreamer - Basic Chat Demo - Node.js Adapter #
 <!-- START DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
-This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
-It shows the use of DataProvider and MetadataProvider classes provided in the lightstreamer-adapter node module.
+This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance. The Adapters shown can be used in combination with the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript).
+It shows the use of DataProvider and MetadataProvider classes provided in the [lightstreamer-adapter node module](https://github.com/Weswit/Lightstreamer-lib-node-adapter).<br>
+
+The project includes:
+
+- nodechat.js
+  Contains the JavaScript code for the Chat Data and Metadata Adapter.<br>
+- robustconnect.js
+  Contains the JavaScript code that manages the connection to the Proxy Adapter.<br>
+
 
 <!-- END DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
@@ -31,7 +39,6 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
         </data_provider>
 </adapters_conf>
 ```
-
 5.    Launch Lightstreamer.
 
 ## Prepare the Remote Adapter ##
