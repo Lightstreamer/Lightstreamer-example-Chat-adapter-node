@@ -20,26 +20,25 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
 3. Copy the "ls-proxy-adapters.jar" file from "Lightstreamer/DOCS-SDKs/sdk_adapter_remoting_infrastructure/lib" in the newly created "lib" folder.
 4. Create an "adapters.xml" file inside the "NodeAdapter" folder and use the following contents:
 
-```xml
-<?xml version="1.0"?>
+        ```xml
+        <?xml version="1.0"?>
 
-<adapters_conf id="PROXY_NODECHAT">
-    <metadata_provider>
-        <adapter_class>com.lightstreamer.adapters.remote.metadata.RobustNetworkedMetadataProvider</adapter_class>
-        <param name="request_reply_port">8003</param>
-        <param name="timeout">36000000</param>
-    </metadata_provider>
-    
-    <data_provider name="CHAT_ROOM">
-        <adapter_class>com.lightstreamer.adapters.remote.data.RobustNetworkedDataProvider</adapter_class>
-        <param name="request_reply_port">8001</param>
-        <param name="notify_port">8002</param>
-        <param name="timeout">36000000</param>
-    </data_provider>
-</adapters_conf>
-```
-<br>
-5.    Launch Lightstreamer.
+        <adapters_conf id="PROXY_NODECHAT">
+            <metadata_provider>
+                <adapter_class>com.lightstreamer.adapters.remote.metadata.RobustNetworkedMetadataProvider</adapter_class>
+                <param name="request_reply_port">8003</param>
+                <param name="timeout">36000000</param>
+            </metadata_provider>
+            
+            <data_provider name="CHAT_ROOM">
+                <adapter_class>com.lightstreamer.adapters.remote.data.RobustNetworkedDataProvider</adapter_class>
+                <param name="request_reply_port">8001</param>
+                <param name="notify_port">8002</param>
+                <param name="timeout">36000000</param>
+            </data_provider>
+        </adapters_conf>
+        ```
+5. Launch Lightstreamer.
 
 ## Prepare the Remote Adapter ##
 
