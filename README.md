@@ -20,7 +20,6 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
 3. Copy the "ls-proxy-adapters.jar" file from "Lightstreamer/DOCS-SDKs/sdk_adapter_remoting_infrastructure/lib" in the newly created "lib" folder.
 4. Create an "adapters.xml" file inside the "NodeAdapter" folder and use the following contents:
 
-
         <?xml version="1.0"?>
 
         <adapters_conf id="PROXY_NODECHAT">
@@ -44,23 +43,19 @@ The following steps assume that Lightstreamer Server, Adapter and Client are lau
 
 1. From the command line go to the folder of this project and call<br>
 
-        ```
         npm install lightstreamer-adapter
-        ```
 
 2. Run the adapter using<br>
-        ```cmd
+
         node nodechat.js
-        ```
+
 
 ## Prepare the Client ##
 
 1. Please refer to the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) project
 2. Edit the js/lsClient.js file: in the LightstreamerClient instantiation and replace the "CHAT" string with "PROXY_NODECHAT"<br>
 
-        ```
         new LightstreamerClient(hostToUse,"PROXY_NODECHAT");
-        ```
 
 3. Open the index.html file in one or more browsers. You can either launch the file using the file:/// protocol (i.e.: by double-clicking the file on most systems) or by deploying the folder on a local webserver (you may use Lightstreamer internal webserver).
 
