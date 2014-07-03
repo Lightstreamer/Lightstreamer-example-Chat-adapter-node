@@ -1,11 +1,13 @@
 # Lightstreamer - Basic Chat Demo - Node.js Adapter #
 <!-- START DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
-The Lightstreamer Basic Chat Demo is a very simple chat application based on Lightstreamer.
+The *Lightstreamer Basic Chat Demo* is a very simple chat application based on [Lightstreamer](http://www.lightstreamer.com) for its real-time communication needs.
+
 This project includes an example Lightstreamer remote chat adapter to be deployed on a node instance.
 
-## Details
 As example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
+
+## Details
 
 This project shows the use of DataProvider and MetadataProvider classes provided in the [lightstreamer-adapter node module](https://github.com/Weswit/Lightstreamer-lib-node-adapter).
 
