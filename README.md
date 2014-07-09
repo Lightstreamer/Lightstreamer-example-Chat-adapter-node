@@ -18,7 +18,8 @@ The project includes:
 <!-- END DESCRIPTION lightstreamer-example-chat-adapter-node -->
 
 ## Install
-The following steps assume that Lightstreamer Server, Adapter and Client are launched on the same machine. Adapt hosts accordingly when separating the pieces across different machines.
+If you want to install a version of this demo in your local Lightstreamer Server, follow these steps.
+Keep in mind that the following steps assume that Lightstreamer Server, Adapter and Client are launched on the same machine. Adapt hosts accordingly when separating the pieces across different machines.
 
 ### Prepare Lightstreamer
 
