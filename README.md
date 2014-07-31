@@ -10,7 +10,7 @@ As example of a client using this adapter, you may refer to the [Basic Chat Demo
 
 ## Details
 
-This project shows the use of DataProvider and MetadataProvider classes provided in the [lightstreamer-adapter node module](https://github.com/Weswit/Lightstreamer-lib-node-adapter). For more detail, see [Node.js Interfaces](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node#nodejs-interfaces) in [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node) 
+This project shows the use of DataProvider and MetadataProvider classes provided in the [Lightstreamer SDK for Node Adapters](https://github.com/Weswit/Lightstreamer-lib-node-adapter). For more detail, see [Node.js Interfaces](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node#nodejs-interfaces) in [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node) 
 
 ### Dig the Code
 
