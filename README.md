@@ -14,7 +14,7 @@ This project shows the use of DataProvider and MetadataProvider classes provided
 
 ### Dig the Code
 
-The project consists of to JavaScript source files:
+The project consists of two JavaScript source files:
 * `nodechat.js`, contains the code for the Chat Data and Metadata Adapter;
 * `robustconnect.js`, manages the connection to the Proxy Adapter.
 
