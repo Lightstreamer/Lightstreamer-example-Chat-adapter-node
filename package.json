@@ -1,0 +1,42 @@
+{
+  "name": "lightstreamer-adapter-chat",
+  "version": "1.0.0",
+  "description": "Hello world application showing how to develop simple Lightstreamer adapters based on node.",
+  "keywords": [
+    "lightstreamer",
+    "push",
+    "realtime",
+    "real-time",
+    "websocket",
+    "chat"
+  ],
+  
+  "homepage": "http://www.lightstreamer.com",
+  
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node" 
+  },
+  
+  "bugs": { 
+    "url" : "http://forum.lightstreamer.com/",
+    "email" : "support@lightstreamer.com"
+  },
+  
+  "author": { 
+    "name" : "Weswit Srl",
+    "email" : "support@lightstreamer.com"
+  },
+  
+  "files": ["README.md","nodechat.js","robustconnect.js"],  
+  
+  "main": "nodechat",
+    
+  "engines": [
+    "node"
+  ],
+  
+  "dependencies": {
+    "lightstreamer-adapter": ">=1.0.0"
+  }
+}
