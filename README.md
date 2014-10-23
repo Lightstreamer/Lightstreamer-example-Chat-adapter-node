@@ -91,6 +91,5 @@ should become like this:<BR/>
 *    [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node)
 
 ## Lightstreamer Compatibility Notes
-Compatible with Lightstreamer SDK for Node Adapters since 1.1.1
-- For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node/tree/v1.0).
-
+Compatible with Lightstreamer SDK for Node Adapters version 1.1 to 1.2
+- For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
