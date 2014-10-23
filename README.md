@@ -20,7 +20,7 @@ The project consists of two JavaScript source files:
 
 #### The Adapter Set Configuration
 This Adapter Set is configured and will be referenced by the clients as `PROXY_NODECHAT`.
-As *Proxy Data Adapter* and *Proxy MetaData Adapter*, you may configure also the robust versions. The *Robust Proxy Data Adapter* and *Robust Proxy MetaData Adapter* have some recovery capabilities and avoid to terminate the Lightstreamer Server process, so it can handle the case in which a Remote Data Adapter is missing or fails, by suspending the data flow and trying to connect to a new Remote Data Adapter instance. Full details on the recovery behavior of the Robust Data Adapter are available as inline comments within the `DOCS-SDKs/sdk_adapter_remoting_infrastructure/conf/sockets(robust)/adapters.xml` file in your Lightstreamer Server installation.
+As *Proxy Data Adapter* and *Proxy MetaData Adapter*, you may configure also the robust versions. The *Robust Proxy Data Adapter* and *Robust Proxy MetaData Adapter* have some recovery capabilities and avoid to terminate the Lightstreamer Server process, so it can handle the case in which a Remote Data Adapter is missing or fails, by suspending the data flow and trying to connect to a new Remote Data Adapter instance. Full details on the recovery behavior of the Robust Data Adapter are available as inline comments within the `DOCS-SDKs/adapter_remoting_infrastructure/doc/adapter_robust_conf_template/adapters.xml` file in your Lightstreamer Server installation.
 
 The `adapters.xml` file for this demo should look like:
 
@@ -29,14 +29,14 @@ The `adapters.xml` file for this demo should look like:
 
 <adapters_conf id="PROXY_NODECHAT">
     <metadata_provider>
-        <adapter_class>com.lightstreamer.adapters.remote.metadata.RobustNetworkedMetadataProvider</adapter_class>
+        <adapter_class>ROBUST_PROXY_FOR_REMOTE_ADAPTER</adapter_class>
         <classloader>log-enabled</classloader>
         <param name="request_reply_port">8003</param>
         <param name="timeout">36000000</param>
     </metadata_provider>
     
     <data_provider name="CHAT_ROOM">
-        <adapter_class>com.lightstreamer.adapters.remote.data.RobustNetworkedDataProvider</adapter_class>
+        <adapter_class>ROBUST_PROXY_FOR_REMOTE_ADAPTER</adapter_class>
         <classloader>log-enabled</classloader>
         <param name="request_reply_port">8001</param>
         <param name="notify_port">8002</param>
@@ -91,5 +91,6 @@ should become like this:<BR/>
 *    [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node)
 
 ## Lightstreamer Compatibility Notes
-Compatible with Lightstreamer SDK for Node Adapters version 1.1 to 1.2
+
+* Compatible with Lightstreamer SDK for Node.js Adapters since 1.3
 - For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
