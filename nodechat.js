@@ -94,12 +94,16 @@ function initDataProvider() {
 }
 
 function initMetadataProvider() {
-  //Create the metadata provider object from the lightstreamer module
+  // Create the metadata provider object from the lightstreamer module
   metadataProvider = new MetadataProvider(metadataStream, {
     distinctSnapLen: 30,
     itemAllowedModes: {distinct: true},
     userAllowedModes: {distinct: true},
   });
+
+  // The default management of getItems and getSchema, which treats
+  // group and schema names as comma-separated lists, is suitable
+  // for this demo
 
   // Handle new session event and store user session data
   metadataProvider.on('notifyNewSession', function(request, response) {
@@ -115,7 +119,7 @@ function initMetadataProvider() {
     response.success();    
   });
 
-  // Handle and incoming message and push it to the chat_room item
+  // Handle any incoming message and push it to the chat_room item
   metadataProvider.on('notifyUserMessage', function(request, response) {
     console.log("New user message: " + inspect(request));
     if (!subscribed) {
