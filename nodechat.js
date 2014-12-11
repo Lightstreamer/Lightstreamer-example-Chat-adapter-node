@@ -124,9 +124,11 @@ function initMetadataProvider() {
     console.log("New user message: " + inspect(request));
     if (!subscribed) {
       response.error("Unexpected message", "notification");
+      return;
     }
     if (!sessions[request.sessionId]) {
       response.error("Session lost! Please reload the browser page(s).", "notification");
+      return;
     }
     var session = sessions[request.sessionId];
     var userMessage = request.userMessage.split("|")[1];
