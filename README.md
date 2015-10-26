@@ -3,13 +3,13 @@
 
 The *Lightstreamer Basic Chat Demo* is a very simple chat application, based on [Lightstreamer](http://www.lightstreamer.com) for its real-time communication needs.
 
-This project contains the source code and all the resources needed to deploy on a [Node.js](http://nodejs.org/) instance the Node.js port of the [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java).
+This project contains the source code and all the resources needed to deploy on a [Node.js](http://nodejs.org/) instance the Node.js port of the [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java).
 
-As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
+As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
 
 ## Details
 
-This project shows the use of DataProvider and MetadataProvider classes provided in the [Lightstreamer SDK for Node Adapters](https://github.com/Weswit/Lightstreamer-lib-node-adapter). For more details, see [Node.js Interfaces](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node#nodejs-interfaces) in [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node) 
+This project shows the use of DataProvider and MetadataProvider classes provided in the [Lightstreamer SDK for Node Adapters](https://github.com/Lightstreamer/Lightstreamer-lib-node-adapter). For more details, see [Node.js Interfaces](https://github.com/Lightstreamer/Lightstreamer-example-HelloWorld-adapter-node#nodejs-interfaces) in [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Lightstreamer/Lightstreamer-example-HelloWorld-adapter-node) 
 
 ### Dig the Code
 
@@ -52,7 +52,7 @@ You can easily expand your configurations using the generic template, DOCS-SDKs/
 ## Install
 If you want to install a version of this demo in your local Lightstreamer Server, follow these steps:
 * Download *Lightstreamer Server* (Lightstreamer Server comes with a free non-expiring demo license for 20 connected users) from [Lightstreamer Download page](http://www.lightstreamer.com/download.htm), and install it, as explained in the `GETTING_STARTED.TXT` file in the installation home directory.
-* Get the `deploy.zip` file for the Lightstreamer version you have installed from [releases](https://github.com/Weswit/Lightstreamer-example-chat-adapter-node/releases) and unzip it, obtaining the `deployment` folder.
+* Get the `deploy.zip` file for the Lightstreamer version you have installed from [releases](https://github.com/Lightstreamer/Lightstreamer-example-chat-adapter-node/releases) and unzip it, obtaining the `deployment` folder.
 * Plug the Proxy Data Adapter into the Server: go to the `deployment/Deployment_LS` folder and copy the `ChatAdapterNode` directory and all of its files to the `adapters` folder of your Lightstreamer Server installation.
 * Alternatively, you may plug the *robust* versions of the Proxy Data Adapter: go to the `deployment/Deployment_LS(robust)` folder and copy the `ChatAdapterNode` directory and all of its files into the `adapters` folder.
 * Install the lightstreamer-adapter module. 
@@ -63,8 +63,8 @@ If you want to install a version of this demo in your local Lightstreamer Server
 * Launch Lightstreamer Server. The Server startup will complete only after a successful connection between the Proxy Data Adapter and the Remote Data Adapter.
 * Launch the Node.js Remote Adapter: go to the `Deployment_Node_Remote_Adapter` folder and launch:<BR/>
 `> node nodechat.js`<BR/>
-* Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node#clients-using-this-adapter).
-    * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_NODECHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
+* Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node#clients-using-this-adapter).
+    * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_NODECHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"CHAT");`<BR/>
 with:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"PROXY_NODECHAT");`<BR/>
@@ -78,21 +78,21 @@ should become like this:<BR/>
 
 ## See Also
 
-*    [Lightstreamer SDK for Node Adapters](https://github.com/Weswit/Lightstreamer-lib-node-adapter "Lightstreamer SDK for Node Adapters")
+*    [Lightstreamer SDK for Node Adapters](https://github.com/Lightstreamer/Lightstreamer-lib-node-adapter "Lightstreamer SDK for Node Adapters")
 
 ### Clients Using This Adapter
 <!-- START RELATED_ENTRIES -->
 
-*    [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript)
+*    [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript)
 
 <!-- END RELATED_ENTRIES -->
 
 ### Related Projects
 
-*    [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
-*    [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-node)
+*    [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java)
+*    [Lightstreamer - "Hello World" Tutorial - Node.js Adapter](https://github.com/Lightstreamer/Lightstreamer-example-HelloWorld-adapter-node)
 
 ## Lightstreamer Compatibility Notes
 
 * Compatible with Lightstreamer SDK for Node.js Adapters since 1.3
-- For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
+- For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
