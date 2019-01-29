@@ -19,12 +19,7 @@ var
   DataProvider = require('lightstreamer-adapter').DataProvider,
   net = require('./robustconnect'),
   inspect = require('util').inspect,
-
-  // Remote proxy host and ports
-  HOST = 'localhost',
-  REQ_RESP_PORT = 8001,
-  WRITE_PORT = 8002,
-  META_PORT = 8003,
+  commandLineArgs = require('command-line-args'),
 
   // Request/response socket channel
   reqRespStream,
@@ -46,21 +41,30 @@ var
 
   // User data just for the demo
   sessions = [];
+  
+  const optionDefinitions = [
+    { name: 'host', type: String },
+    { name: 'metadata_rrport', type: Number },
+    { name: 'data_rrport', type: Number },
+    { name: 'data_notifport', type: Number },
+  ];
+  
+  const options = commandLineArgs(optionDefinitions);
 
 // Create socket connections
-net.createConnection(REQ_RESP_PORT, HOST, function(stream) {
+net.createConnection(options.data_rrport, options.host, function(stream) {
   reqRespStream = stream;
   if(notifyStream) {
     initDataProvider();
   }
 });
-net.createConnection(WRITE_PORT, HOST, function(stream) {
+net.createConnection(options.data_notifport, options.host, function(stream) {
   notifyStream = stream;
   if(reqRespStream) {
     initDataProvider();
   }
 });
-net.createConnection(META_PORT, HOST, function(stream) {
+net.createConnection(options.metadata_rrport, options.host, function(stream) {
   metadataStream = stream;
   initMetadataProvider();
 });
@@ -75,7 +79,7 @@ function initDataProvider() {
     console.log("Subcribed item: " + itemName);
     if (itemName === "chat_room") {
       subscribed = true;
-      response.success();    
+      response.success();
     } else {
       response.error("No such item", "subscription");
     }

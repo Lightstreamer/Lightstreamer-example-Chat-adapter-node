@@ -57,12 +57,13 @@ If you want to install a version of this demo in your local Lightstreamer Server
 * Alternatively, you may plug the *robust* versions of the Proxy Data Adapter: go to the `deployment/Deployment_LS(robust)` folder and copy the `ChatAdapterNode` directory and all of its files into the `adapters` folder.
 * Install the lightstreamer-adapter module. 
     * Create a directory where to deploy the Node.js Remote Adapter and let call it `Deployment_Node_Remote_Adapter`.
-    * Go to the `Deployment_Node_Remote_Adapter` folder and launch the command:<BR/>
+    * Go to the `Deployment_Node_Remote_Adapter` folder and launch the commands:<BR/>
     `> npm install lightstreamer-adapter`<BR/>
+    `> npm install command-line-args`<BR/>
     * Download the `nodechat.js` and the `robustconnect.js` files from this project and copy them into the `Deployment_Node_Remote_Adapter` folder.
 * Launch Lightstreamer Server. The Server startup will complete only after a successful connection between the Proxy Data Adapter and the Remote Data Adapter.
 * Launch the Node.js Remote Adapter: go to the `Deployment_Node_Remote_Adapter` folder and launch:<BR/>
-`> node nodechat.js`<BR/>
+`> node nodechat.js --host localhost --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
 * Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node#clients-using-this-adapter).
     * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_NODECHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"CHAT");`<BR/>
@@ -94,5 +95,5 @@ should become like this:<BR/>
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer SDK for Node.js Adapters since 1.3
+* Compatible with Lightstreamer SDK for Node.js Adapters version 1.3 or newer
 - For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
