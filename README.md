@@ -77,6 +77,54 @@ should become like this:<BR/>
 `lsClient.connectionSharing.enableSharing("RemoteChatDemoConnection", "ATTACH", "CREATE");`
     * Open a browser window and go to: [http://localhost:8080/ChatDemo](http://localhost:8080/ChatDemo)
 
+### Available improvements
+
+#### Add Encryption
+
+This feature requires version 1.9 or newer of the Adapter Remoting Infrastructure (i.e. Proxy Adapters), which in turns corresponds to Server version 7.1 or newer.
+
+Each TCP connection from a Remote Adapter can be encrypted via TLS. To have the Proxy Adapters accept only TLS connections, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
+```xml
+  <data_provider>
+    ...
+    <param name="tls">Y</param>
+    <param name="tls.keystore.type">JKS</param>
+    <param name="tls.keystore.keystore_file">./myserver.keystore</param>
+    <param name="tls.keystore.keystore_password.type">text</param>
+    <param name="tls.keystore.keystore_password">xxxxxxxxxx</param>
+    ...
+  </data_provider>
+```
+and the same should be added in the <metadata_provider> block.
+
+This requires that a suitable keystore with a valid certificate is provided. See the configuration details in `DOCS-SDKs/adapter_remoting_infrastructure/doc/adapter_robust_conf_template/adapters.xml`.
+NOTE: For your experiments, you can configure the adapters.xml to use the same JKS keystore "myserver.keystore" provided out of the box in the Lightstreamer distribution. Since this keystore contains an invalid certificate, remember to configure your local environment to "trust" it.
+The provided source code is already predisposed for TLS connection on all ports. You can rerun the Node.js Remote Adapter with the new configuration by going to the `Deployment_Node_Remote_Adapter` folder and launching:<BR/>
+`> node nodechat.js --host xxxxxxxx --tls --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
+where the same hostname supported by the provided certificate must be supplied.
+
+#### Add Authentication
+
+This feature is only available in SDK for Node.js Adapters version 1.5 or newer, which requires version 1.9 or newer of the Adapter Remoting Infrastructure (i.e. Proxy Adapters), which in turns corresponds to Server version 7.1 or newer.
+
+Each TCP connection from a Remote Adapter can be subject to Remote Adapter authentication through the submission of user/password credentials. To enforce credential check on the Proxy Adapters, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
+```xml
+  <data_provider>
+    ...
+    <param name="auth">Y</param>
+    <param name="auth.credentials.1.user">user1</param>
+    <param name="auth.credentials.1.password">pwd1</param>
+    ...
+  </data_provider>
+```
+and the same should be added in the <metadata_provider> block.
+
+See the configuration details in `DOCS-SDKs/adapter_remoting_infrastructure/doc/adapter_robust_conf_template/adapters.xml`.
+The provided source code is already predisposed for credential submission on both adapters. You can rerun the Node.js Remote Adapter with the new configuration by going to the `Deployment_Node_Remote_Adapter` folder and launching:<BR/>
+`> node nodechat.js --host localhost --user user1 --password pwd1 --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
+
+Authentication can (and should) be combined with TLS encryption.
+
 ## See Also
 
 *    [Lightstreamer SDK for Node Adapters](https://github.com/Lightstreamer/Lightstreamer-lib-node-adapter "Lightstreamer SDK for Node Adapters")

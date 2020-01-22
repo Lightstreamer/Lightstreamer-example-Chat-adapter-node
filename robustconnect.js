@@ -16,7 +16,7 @@ Copyright (c) Lightstreamer Srl
 
 var RETRY_TIMEOUT = 4000;
 
-exports.createConnection = function(port,host,readyCb,timeout) {
+exports.createConnection = function(port,host,isTls,readyCb,timeout) {
   timeout = timeout ||  RETRY_TIMEOUT;
   
   var ready = false;
@@ -25,7 +25,8 @@ exports.createConnection = function(port,host,readyCb,timeout) {
     if (ready) {
       clearInterval(interval);
     } else {
-      var stream = require('net').connect(port,host,function() {
+      var connector = (isTls ? require("tls") : require("net"));
+      var stream = connector.connect(port,host,function() {
         ready = true;
         readyCb(stream);
       });

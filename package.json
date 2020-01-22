@@ -10,37 +10,30 @@
     "websocket",
     "chat"
   ],
-  
   "homepage": "http://www.lightstreamer.com",
-  
-  "repository" : { 
-    "type" : "git", 
-    "url" : "https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node" 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node"
   },
-  
-  "bugs": { 
-    "url" : "http://forum.lightstreamer.com/",
-    "email" : "support@lightstreamer.com"
+  "bugs": {
+    "url": "http://forum.lightstreamer.com/",
+    "email": "support@lightstreamer.com"
   },
-  
-  "author": { 
-    "name" : "Weswit Srl",
-    "email" : "support@lightstreamer.com"
+  "author": {
+    "name": "Weswit Srl",
+    "email": "support@lightstreamer.com"
   },
-  
   "files": [
     "README.md",
     "nodechat.js",
     "robustconnect.js"
   ],
   "main": "nodechat",
-    
   "engines": [
     "node"
   ],
-  
   "dependencies": {
     "command-line-args": "^5.0.2",
-    "lightstreamer-adapter": ">=1.3.0"
+    "lightstreamer-adapter": "^1.4.2"
   }
 }

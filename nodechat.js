@@ -44,27 +44,37 @@ var
   
   const optionDefinitions = [
     { name: 'host', type: String },
+    { name: 'tls', type: Boolean, defaultOption: false },
     { name: 'metadata_rrport', type: Number },
     { name: 'data_rrport', type: Number },
     { name: 'data_notifport', type: Number },
+    { name: 'user', type: String },
+    { name: 'password', type: String }
   ];
   
   const options = commandLineArgs(optionDefinitions);
 
+  var credentials;
+  if (options.user != null) {
+    credentials = { user: options.user, password: options.password };
+  } else {
+    credentials = null;
+  }
+
 // Create socket connections
-net.createConnection(options.data_rrport, options.host, function(stream) {
+net.createConnection(options.data_rrport, options.host, options.tls, function(stream) {
   reqRespStream = stream;
   if(notifyStream) {
     initDataProvider();
   }
 });
-net.createConnection(options.data_notifport, options.host, function(stream) {
+net.createConnection(options.data_notifport, options.host, options.tls, function(stream) {
   notifyStream = stream;
   if(reqRespStream) {
     initDataProvider();
   }
 });
-net.createConnection(options.metadata_rrport, options.host, function(stream) {
+net.createConnection(options.metadata_rrport, options.host, options.tls, function(stream) {
   metadataStream = stream;
   initMetadataProvider();
 });
@@ -72,7 +82,8 @@ net.createConnection(options.metadata_rrport, options.host, function(stream) {
 
 function initDataProvider() {
   //Create the data provider object from the lightstreamer module
-  dataProvider = new DataProvider(reqRespStream, notifyStream);
+  dataProvider = new DataProvider(reqRespStream, notifyStream, null, credentials);
+    // the "credentials" parameter is ignored by SDK version prior to 1.5
   
   //Handle subscribe event
   dataProvider.on('subscribe', function(itemName, response) {
@@ -103,7 +114,8 @@ function initMetadataProvider() {
     distinctSnapLen: 30,
     itemAllowedModes: {distinct: true},
     userAllowedModes: {distinct: true},
-  });
+  }, credentials);
+    // the "credentials" parameter is ignored by SDK version prior to 1.5
 
   // The default management of getItems and getSchema, which treats
   // group and schema names as comma-separated lists, is suitable
