@@ -82,7 +82,7 @@ should become like this:<BR/>
 
 #### Add Encryption
 
-This feature requires version 1.9 or newer of the Adapter Remoting Infrastructure (i.e. Proxy Adapters), which in turns corresponds to Server version 7.1 or newer.
+This feature requires Server version 7.1.0 (which corresponded to Adapter Remoting Infrastructure, i.e. Proxy Adapters, 1.9.6) or newer.
 
 Each TCP connection from a Remote Adapter can be encrypted via TLS. To have the Proxy Adapters accept only TLS connections, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
 ```xml
@@ -106,7 +106,7 @@ where the same hostname supported by the provided certificate must be supplied.
 
 #### Add Authentication
 
-This feature is only available in SDK for Node.js Adapters version 1.5 or newer, which requires version 1.9 or newer of the Adapter Remoting Infrastructure (i.e. Proxy Adapters), which in turns corresponds to Server version 7.1 or newer.
+This feature is only available in SDK for Node.js Adapters version 1.5 or newer and requires Server version 7.1.0 (which corresponded to Adapter Remoting Infrastructure, i.e. Proxy Adapters, 1.9.6) or newer.
 
 Each TCP connection from a Remote Adapter can be subject to Remote Adapter authentication through the submission of user/password credentials. To enforce credential check on the Proxy Adapters, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
 ```xml
