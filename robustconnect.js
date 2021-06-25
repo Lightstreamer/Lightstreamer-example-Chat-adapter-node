@@ -31,7 +31,8 @@ exports.createConnection = function(port,host,isTls,readyCb,timeout) {
         readyCb(stream);
       });
       
-      stream.on("error",function() {
+      stream.on("error",function(e) {
+        console.log(e.message);
         //wait next interval
       });
     } 
