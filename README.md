@@ -52,7 +52,7 @@ for [basic](https://lightstreamer.com/docs/ls-ARI/latest/adapter_conf_template/a
 
 ## Install
 If you want to install a version of this demo in your local Lightstreamer Server, follow these steps:
-* Download *Lightstreamer Server* (Lightstreamer Server comes with a free non-expiring demo license for 20 connected users) from [Lightstreamer Download page](http://www.lightstreamer.com/download.htm), and install it, as explained in the `GETTING_STARTED.TXT` file in the installation home directory.
+* Download *Lightstreamer Server* (Lightstreamer Server comes with a free non-expiring demo license for 20 connected users) from [Lightstreamer Download page](https://lightstreamer.com/download/), and install it, as explained in the `GETTING_STARTED.TXT` file in the installation home directory.
 * Get the `deploy.zip` file for the Lightstreamer version you have installed from [releases](https://github.com/Lightstreamer/Lightstreamer-example-chat-adapter-node/releases) and unzip it, obtaining the `deployment` folder.
 * Plug the Proxy Data Adapter into the Server: go to the `deployment/Deployment_LS` folder and copy the `ChatAdapterNode` directory and all of its files to the `adapters` folder of your Lightstreamer Server installation.
 * Alternatively, you may plug the *robust* versions of the Proxy Data Adapter: go to the `deployment/Deployment_LS(robust)` folder and copy the `ChatAdapterNode` directory and all of its files into the `adapters` folder.
