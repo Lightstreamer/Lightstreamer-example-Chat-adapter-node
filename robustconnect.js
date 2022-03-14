@@ -28,11 +28,12 @@ exports.createConnection = function(port,host,isTls,readyCb,timeout) {
       var connector = (isTls ? require("tls") : require("net"));
       var stream = connector.connect(port,host,function() {
         ready = true;
+        console.log("Connection ready on port " + port + ".");
         readyCb(stream);
       });
       
       stream.on("error",function(e) {
-        console.log(e.message);
+        console.log(e.message + "; will retry.");
         //wait next interval
       });
     } 

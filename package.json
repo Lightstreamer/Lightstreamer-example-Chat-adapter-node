@@ -33,7 +33,7 @@
     "node"
   ],
   "dependencies": {
-    "command-line-args": "^5.0.2",
-    "lightstreamer-adapter": "^1.4.2"
+    "command-line-args": "^5.2.1",
+    "lightstreamer-adapter": "^1.5.3"
   }
 }
