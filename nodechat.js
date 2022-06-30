@@ -149,7 +149,7 @@ function initMetadataProvider() {
     var session = sessions[request.sessionId];
     var userMessage = request.userMessage.split("|")[1];
     dataProvider.update("chat_room", false, {
-      'timestamp': new Date().getTime() + '',
+      'raw_timestamp': new Date().getTime() + '',
       'IP': session.REMOTE_IP,
       'nick': session.USER_AGENT,
       'message': userMessage
