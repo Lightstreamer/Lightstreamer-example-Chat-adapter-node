@@ -27,6 +27,8 @@ The `adapters.xml` file for this demo should look like:
 <?xml version="1.0"?>
 
 <adapters_conf id="PROXY_NODECHAT">
+    <metadata_adapter_initialised_first>N</metadata_adapter_initialised_first>
+    
     <metadata_provider>
         <adapter_class>ROBUST_PROXY_FOR_REMOTE_ADAPTER</adapter_class>
         <classloader>log-enabled</classloader>
