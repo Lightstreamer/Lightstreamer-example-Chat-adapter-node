@@ -46,6 +46,8 @@ The `adapters.xml` file for this demo should look like:
 </adapters_conf>
 ```
 
+<i>NOTE: the use of a notify port for a Data Adapter is mandatory for Servers earlier than 7.4, then it is supported for backward compatibility.</i>
+
 <i>NOTE: not all configuration options of a Proxy Adapter are exposed by the file suggested above.
 You can easily expand your configurations using the generic template
 for [basic](https://lightstreamer.com/docs/ls-server/latest_7_3/remote_adapter_conf_template/adapters.xml) and [robust](https://lightstreamer.com/docs/ls-server/latest_7_3/remote_adapter_robust_conf_template/adapters.xml) Proxy Adapters as a reference.</i>
