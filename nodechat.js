@@ -21,13 +21,10 @@ var
   inspect = require('util').inspect,
   commandLineArgs = require('command-line-args'),
 
-  // Request/response socket channel
-  reqRespStream,
+  // Data requests/replies socket channel
+  dataStream,
 
-  // Push data socket channel
-  notifyStream,
-
-  // Metadata socket channel
+  // Metadata requests/replies socket channel
   metadataStream,
 
   // The data provider object
@@ -47,7 +44,6 @@ var
     { name: 'tls', type: Boolean, defaultOption: false },
     { name: 'metadata_rrport', type: Number },
     { name: 'data_rrport', type: Number },
-    { name: 'data_notifport', type: Number },
     { name: 'user', type: String },
     { name: 'password', type: String }
   ];
@@ -63,16 +59,8 @@ var
 
 // Create socket connections
 net.createConnection(options.data_rrport, options.host, options.tls, function(stream) {
-  reqRespStream = stream;
-  if(notifyStream) {
-    initDataProvider();
-  }
-});
-net.createConnection(options.data_notifport, options.host, options.tls, function(stream) {
-  notifyStream = stream;
-  if(reqRespStream) {
-    initDataProvider();
-  }
+  dataStream = stream;
+  initDataProvider();
 });
 net.createConnection(options.metadata_rrport, options.host, options.tls, function(stream) {
   metadataStream = stream;
@@ -82,8 +70,7 @@ net.createConnection(options.metadata_rrport, options.host, options.tls, functio
 
 function initDataProvider() {
   //Create the data provider object from the lightstreamer module
-  dataProvider = new DataProvider(reqRespStream, notifyStream, null, credentials);
-    // the "credentials" parameter is ignored by SDK version prior to 1.5
+  dataProvider = new DataProvider(dataStream, null, null, credentials);
   
   //Handle subscribe event
   dataProvider.on('subscribe', function(itemName, response) {
@@ -115,7 +102,6 @@ function initMetadataProvider() {
     itemAllowedModes: {distinct: true},
     userAllowedModes: {distinct: true},
   }, credentials);
-    // the "credentials" parameter is ignored by SDK version prior to 1.5
 
   // The default management of getItems and getSchema, which treats
   // group and schema names as comma-separated lists, is suitable

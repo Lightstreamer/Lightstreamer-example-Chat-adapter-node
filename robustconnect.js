@@ -16,7 +16,7 @@ Copyright (c) Lightstreamer Srl
 
 var RETRY_TIMEOUT = 4000;
 
-exports.createConnection = function(port,host,isTls,readyCb,timeout) {
+exports.createConnection = function(port,host,isTls,readyCb,errorCb,timeout) {
   timeout = timeout ||  RETRY_TIMEOUT;
   
   var ready = false;
@@ -33,8 +33,17 @@ exports.createConnection = function(port,host,isTls,readyCb,timeout) {
       });
       
       stream.on("error",function(e) {
-        console.log(e.message + "; will retry.");
-        //wait next interval
+        if (errorCb) {
+          errorCb(e);
+        }
+        if (ready) {
+            // communication issue
+            console.log("Connection closed on port " + port + ": " + e.message);
+        } else {
+            // connection issue
+            console.log(e.message + "; will retry.");
+            // wait next interval
+        }
       });
     } 
   },RETRY_TIMEOUT);

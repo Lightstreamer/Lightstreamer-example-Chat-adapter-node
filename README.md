@@ -40,7 +40,6 @@ The `adapters.xml` file for this demo should look like:
         <adapter_class>ROBUST_PROXY_FOR_REMOTE_ADAPTER</adapter_class>
         <classloader>log-enabled</classloader>
         <param name="request_reply_port">8001</param>
-        <param name="notify_port">8002</param>
         <param name="timeout">36000000</param>
     </data_provider>
 </adapters_conf>
@@ -66,7 +65,7 @@ If you want to install a version of this demo in your local Lightstreamer Server
     * Download the `nodechat.js` and the `robustconnect.js` files from this project and copy them into the `Deployment_Node_Remote_Adapter` folder.
 * Launch Lightstreamer Server. The Server startup will complete only after a successful connection between the Proxy Data Adapter and the Remote Data Adapter.
 * Launch the Node.js Remote Adapter: go to the `Deployment_Node_Remote_Adapter` folder and launch:<BR/>
-`> node nodechat.js --host localhost --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
+`> node nodechat.js --host localhost --metadata_rrport 8003 --data_rrport 8001`<BR/>
 * Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](#clients-using-this-adapter).
     * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_NODECHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"CHAT");`<BR/>
@@ -83,8 +82,6 @@ should become like this:<BR/>
 ### Available improvements
 
 #### Add Encryption
-
-This feature requires Server version 7.1.0 (which corresponded to Adapter Remoting Infrastructure, i.e. Proxy Adapters, 1.9.6) or newer.
 
 Each TCP connection from a Remote Adapter can be encrypted via TLS. To have the Proxy Adapters accept only TLS connections, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
 ```xml
@@ -103,12 +100,10 @@ and the same should be added in the <metadata_provider> block.
 This requires that a suitable keystore with a valid certificate is provided. See the configuration details in the [provided template](https://lightstreamer.com/docs/ls-server/latest/remote_adapter_robust_conf_template/adapters.xml).
 NOTE: For your experiments, you can configure the adapters.xml to use the same JKS keystore "myserver.keystore" provided out of the box in the Lightstreamer distribution. Since this keystore contains an invalid certificate, remember to configure your local environment to "trust" it.
 The provided source code is already predisposed for TLS connection on all ports. You can rerun the Node.js Remote Adapter with the new configuration by going to the `Deployment_Node_Remote_Adapter` folder and launching:<BR/>
-`> node nodechat.js --host xxxxxxxx --tls --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
+`> node nodechat.js --host xxxxxxxx --tls --metadata_rrport 8003 --data_rrport 8001`<BR/>
 where the same hostname supported by the provided certificate must be supplied.
 
 #### Add Authentication
-
-This feature is only available in SDK for Node.js Adapters version 1.5 or newer and requires Server version 7.1.0 (which corresponded to Adapter Remoting Infrastructure, i.e. Proxy Adapters, 1.9.6) or newer.
 
 Each TCP connection from a Remote Adapter can be subject to Remote Adapter authentication through the submission of user/password credentials. To enforce credential check on the Proxy Adapters, a suitable configuration should be added in adapters.xml in the <data_provider> block, like this:
 ```xml
@@ -124,7 +119,7 @@ and the same should be added in the <metadata_provider> block.
 
 See the configuration details in the [provided template](https://lightstreamer.com/docs/ls-server/latest/remote_adapter_robust_conf_template/adapters.xml).
 The provided source code is already predisposed for credential submission on both adapters. You can rerun the Node.js Remote Adapter with the new configuration by going to the `Deployment_Node_Remote_Adapter` folder and launching:<BR/>
-`> node nodechat.js --host localhost --user user1 --password pwd1 --metadata_rrport 8003 --data_rrport 8001 --data_notifport 8002`<BR/>
+`> node nodechat.js --host localhost --user user1 --password pwd1 --metadata_rrport 8003 --data_rrport 8001`<BR/>
 
 Authentication can (and should) be combined with TLS encryption.
 
@@ -146,5 +141,7 @@ Authentication can (and should) be combined with TLS encryption.
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer SDK for Node.js Adapters version 1.7 or newer
+* Compatible with Lightstreamer SDK for Node.js Adapters version 1.7 or newer and Lightstreamer Server version 7.4 or newer.
+- For a version of this example compatible with Lightstreamer Server version since 6.0, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_7.3).
+- For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.3 to 1.6, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_7.3).
 - For a version of this example compatible with Lightstreamer SDK for Node.js Adapters version 1.0, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-node/tree/for_Lightstreamer_5.1).
